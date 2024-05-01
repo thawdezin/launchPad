@@ -1,4 +1,7 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+
+import 'launchpad_button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +23,7 @@ class AudioPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Audio Files'),
+        title: Text('LaunchPad'),
       ),
       body: _buildGrid(context),
     );
@@ -55,27 +58,3 @@ class AudioPage extends StatelessWidget {
   }
 }
 
-class AudioButton extends StatelessWidget {
-  final int index;
-
-  AudioButton(this.index);
-
-  @override
-  Widget build(BuildContext context) {
-    double buttonWidth = MediaQuery.of(context).size.width / 4;
-    double buttonHeight = MediaQuery.of(context).size.height / 7;
-
-    return ElevatedButton(
-      onPressed: () {
-        print('$index.wav');
-      },
-      style: ButtonStyle(
-        minimumSize: MaterialStateProperty.all<Size>(Size(buttonWidth, buttonHeight)),
-      ),
-      child: Text(
-        '$index.wav',
-        style: TextStyle(fontSize: 16.0),
-      ),
-    );
-  }
-}
